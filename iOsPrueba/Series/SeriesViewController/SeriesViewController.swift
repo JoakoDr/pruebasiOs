@@ -21,6 +21,8 @@ class SeriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBarButtonsItems()
+        loadAllSeries()
+        refreshUIwithSerie(serie: series[indexCurrentSeries])
         mainImageView.layer.cornerRadius = 50.0
         mainImageView.layer.masksToBounds = true
         // Do any additional setup after loading the view.
@@ -29,6 +31,13 @@ class SeriesViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    private func refreshUIwithSerie( serie : Serie)
+    {
+        titleLabel.text = serie.name
+        mainImageView.image = UIImage(named: serie.imageFile)
+        sumaryTextView.text = serie.summary
+        
     }
     private func setupBarButtonsItems()
     {
@@ -48,5 +57,28 @@ class SeriesViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    private func loadAllSeries()
+{
+    let breakingBad = Serie(name: "Breaking Bad" , imageFile:"BRBA", summary: "El profesor bacterio llega y te mata", seasons: 5 )
+     let betterCallSaul = Serie(name: "Better Call Saul" , imageFile:"", summary: "Looco", seasons: 9 )
+     let kikos = Serie(name: "Kikos" , imageFile:"", summary: "MisterCorn nos mete mucha chicha", seasons: 12 )
+    let keloke = Serie(name: "keloke", imageFile:"", summary: "basuuuuuuuura", seasons: 212 )
+    
+    series.append(breakingBad)
+    series.append(betterCallSaul)
+    series.append(kikos)
+    series.append(keloke)
+    }
+    @IBAction func eventoClickNext()  {
+       indexCurrentSeries = (indexCurrentSeries + 1 ) % series.count
+            refreshUIwithSerie(serie: series[indexCurrentSeries])
+      
+    }
+    @IBAction func eventoClickBack()  {
+        indexCurrentSeries = ((indexCurrentSeries + series.count - 1) % series.count)
+        refreshUIwithSerie(serie: series[indexCurrentSeries])
+        
+    }
 }
+

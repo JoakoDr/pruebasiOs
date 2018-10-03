@@ -9,11 +9,15 @@
 /* Begin PBXBuildFile section */
 		A430D6412164C04A00FC15A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430D6402164C04A00FC15A5 /* AppDelegate.swift */; };
 		A430D6432164C04A00FC15A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430D6422164C04A00FC15A5 /* ViewController.swift */; };
-		A430D6462164C04A00FC15A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A430D6442164C04A00FC15A5 /* Main.storyboard */; };
 		A430D6482164C04C00FC15A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A430D6472164C04C00FC15A5 /* Assets.xcassets */; };
 		A430D64B2164C04C00FC15A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A430D6492164C04C00FC15A5 /* LaunchScreen.storyboard */; };
 		A430D6562164C04C00FC15A5 /* iOsPruebaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430D6552164C04C00FC15A5 /* iOsPruebaTests.swift */; };
 		A430D6612164C04C00FC15A5 /* iOsPruebaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430D6602164C04C00FC15A5 /* iOsPruebaUITests.swift */; };
+		A430D6742164C1B100FC15A5 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430D6722164C1B100FC15A5 /* LogInViewController.swift */; };
+		A430D6752164C1B100FC15A5 /* LogInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A430D6732164C1B100FC15A5 /* LogInViewController.xib */; };
+		A430D67A2164CD0100FC15A5 /* SeriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430D6782164CD0100FC15A5 /* SeriesViewController.swift */; };
+		A430D67B2164CD0100FC15A5 /* SeriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A430D6792164CD0100FC15A5 /* SeriesViewController.xib */; };
+		A430D6802164CF5300FC15A5 /* Serie.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430D67F2164CF5300FC15A5 /* Serie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +41,6 @@
 		A430D63D2164C04A00FC15A5 /* iOsPrueba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOsPrueba.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A430D6402164C04A00FC15A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A430D6422164C04A00FC15A5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A430D6452164C04A00FC15A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A430D6472164C04C00FC15A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A430D64A2164C04C00FC15A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A430D64C2164C04C00FC15A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +50,11 @@
 		A430D65C2164C04C00FC15A5 /* iOsPruebaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOsPruebaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A430D6602164C04C00FC15A5 /* iOsPruebaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOsPruebaUITests.swift; sourceTree = "<group>"; };
 		A430D6622164C04C00FC15A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A430D6722164C1B100FC15A5 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		A430D6732164C1B100FC15A5 /* LogInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogInViewController.xib; sourceTree = "<group>"; };
+		A430D6782164CD0100FC15A5 /* SeriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesViewController.swift; sourceTree = "<group>"; };
+		A430D6792164CD0100FC15A5 /* SeriesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeriesViewController.xib; sourceTree = "<group>"; };
+		A430D67F2164CF5300FC15A5 /* Serie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +105,9 @@
 		A430D63F2164C04A00FC15A5 /* iOsPrueba */ = {
 			isa = PBXGroup;
 			children = (
+				A430D66E2164C11400FC15A5 /* Series */,
 				A430D6402164C04A00FC15A5 /* AppDelegate.swift */,
 				A430D6422164C04A00FC15A5 /* ViewController.swift */,
-				A430D6442164C04A00FC15A5 /* Main.storyboard */,
 				A430D6472164C04C00FC15A5 /* Assets.xcassets */,
 				A430D6492164C04C00FC15A5 /* LaunchScreen.storyboard */,
 				A430D64C2164C04C00FC15A5 /* Info.plist */,
@@ -123,6 +131,42 @@
 				A430D6622164C04C00FC15A5 /* Info.plist */,
 			);
 			path = iOsPruebaUITests;
+			sourceTree = "<group>";
+		};
+		A430D66E2164C11400FC15A5 /* Series */ = {
+			isa = PBXGroup;
+			children = (
+				A430D67E2164CF3B00FC15A5 /* Modelos */,
+				A430D6762164CCC600FC15A5 /* SeriesViewController */,
+				A430D66F2164C13C00FC15A5 /* Login */,
+			);
+			path = Series;
+			sourceTree = "<group>";
+		};
+		A430D66F2164C13C00FC15A5 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A430D6722164C1B100FC15A5 /* LogInViewController.swift */,
+				A430D6732164C1B100FC15A5 /* LogInViewController.xib */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		A430D6762164CCC600FC15A5 /* SeriesViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A430D6782164CD0100FC15A5 /* SeriesViewController.swift */,
+				A430D6792164CD0100FC15A5 /* SeriesViewController.xib */,
+			);
+			path = SeriesViewController;
+			sourceTree = "<group>";
+		};
+		A430D67E2164CF3B00FC15A5 /* Modelos */ = {
+			isa = PBXGroup;
+			children = (
+				A430D67F2164CF5300FC15A5 /* Serie.swift */,
+			);
+			path = Modelos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,7 +275,8 @@
 			files = (
 				A430D64B2164C04C00FC15A5 /* LaunchScreen.storyboard in Resources */,
 				A430D6482164C04C00FC15A5 /* Assets.xcassets in Resources */,
-				A430D6462164C04A00FC15A5 /* Main.storyboard in Resources */,
+				A430D6752164C1B100FC15A5 /* LogInViewController.xib in Resources */,
+				A430D67B2164CD0100FC15A5 /* SeriesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +303,9 @@
 			files = (
 				A430D6432164C04A00FC15A5 /* ViewController.swift in Sources */,
 				A430D6412164C04A00FC15A5 /* AppDelegate.swift in Sources */,
+				A430D6742164C1B100FC15A5 /* LogInViewController.swift in Sources */,
+				A430D67A2164CD0100FC15A5 /* SeriesViewController.swift in Sources */,
+				A430D6802164CF5300FC15A5 /* Serie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,14 +341,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A430D6442164C04A00FC15A5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A430D6452164C04A00FC15A5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A430D6492164C04C00FC15A5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -439,7 +479,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = joaquin.iOsPrueba;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -456,7 +496,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = joaquin.iOsPrueba;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

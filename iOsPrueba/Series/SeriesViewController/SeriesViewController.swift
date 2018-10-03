@@ -21,7 +21,7 @@ class SeriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBarButtonsItems()
-        mainImageView.layer.cornerRadius = 0.0
+        mainImageView.layer.cornerRadius = 50.0
         mainImageView.layer.masksToBounds = true
         // Do any additional setup after loading the view.
     }

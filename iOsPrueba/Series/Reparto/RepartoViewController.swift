@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RepartoViewController: UIViewController {
+class RepartoViewController: UIViewController  {
     
     @IBOutlet weak var tableView : UITableView!
     internal var actors: [Actor] = []
@@ -31,6 +31,9 @@ class RepartoViewController: UIViewController {
         let indentifier = "ActorsTableViewCell"
         let cellNib = UINib(nibName: indentifier, bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "actorsCell")
+        let indentifier1 = "EmptyAlertTableViewCell"
+        let cellNib1 = UINib(nibName: indentifier1, bundle: nil)
+        tableView.register(cellNib1, forCellReuseIdentifier: "EmptyAlert")
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,16 +59,49 @@ extension RepartoViewController: UITableViewDelegate,UITableViewDataSource
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return actors.count
+        if actors.count>=1 {
+            return actors.count
+        }
+         return 1
+        
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 55.0
+        
+        if actors.count>=1 {
+            return 55.0
+        }
+         return 130.5
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: ActorsTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "actorsCell", for: indexPath) as? ActorsTableViewCell)!
-        let actor = actors[indexPath.row]
+        
+        
+        
+        if actors.count == 0 {
+            let cell: EmptyAlertTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "EmptyAlert", for: indexPath) as? EmptyAlertTableViewCell)!
+            cell.delegate = self 
+            cell.layer.cornerRadius = 10
+            return cell
+        }else{
+            let actor = actors[indexPath.row]
+            let cell: ActorsTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "actorsCell", for: indexPath) as? ActorsTableViewCell)!
+            
         cell.lblName.text = actor.name
         cell.imgAvatar.image = UIImage(named: actor.avatarImage)
-        return cell
+            cell.layer.cornerRadius = 10
+            
+            return cell
+            
+        }
+        
+        
     }
 }
+    extension RepartoViewController: EmptyAlertCellDelegate
+    {
+        func emptyStatusCellDidPressBack(cell: EmptyAlertTableViewCell)
+        {
+            navigationController?.popViewController(animated: true)
+        }
+    }
+
+

@@ -9,9 +9,12 @@
 import UIKit
 
 class ActorsTableViewCell: UITableViewCell {
-
+    @IBOutlet  weak var imgAvatar : UIImageView!
+    @IBOutlet  weak var lblName : UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        imgAvatar.layer.cornerRadius = imgAvatar.frame.height / 2
         // Initialization code
     }
 

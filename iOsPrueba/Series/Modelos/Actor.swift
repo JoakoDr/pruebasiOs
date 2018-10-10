@@ -7,3 +7,13 @@
 //
 
 import Foundation
+class Actor {
+    var name:String
+    var avatarImage:String
+    
+    init(name: String, avatarImage:String)
+    {
+        self.name = name
+        self.avatarImage = avatarImage
+    }
+}

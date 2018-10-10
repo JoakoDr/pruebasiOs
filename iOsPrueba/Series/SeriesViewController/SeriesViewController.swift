@@ -27,7 +27,7 @@ class SeriesViewController: UIViewController {
         mainImageView.layer.masksToBounds = true
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -43,10 +43,19 @@ class SeriesViewController: UIViewController {
     {
         let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelPressed))
         navigationItem.setLeftBarButton(cancelButton, animated: false)
+        let actorsBarButton = UIBarButtonItem(title: "Actores", style: .plain, target: self, action: #selector(actorsPressed))
+        navigationItem.setRightBarButton(actorsBarButton, animated: false)
     }
+    
     @objc private func cancelPressed()
     {
         dismiss(animated: true, completion: nil)
+    }
+    @objc private func actorsPressed()
+    {
+        let mySerie = series[indexCurrentSeries]
+        let repartoVC = RepartoViewController(actors: mySerie.actores)
+        navigationController?.pushViewController(repartoVC, animated: true)
     }
     /*
     // MARK: - Navigation
@@ -60,15 +69,20 @@ class SeriesViewController: UIViewController {
     
     private func loadAllSeries()
 {
-    let breakingBad = Serie(name: "Breaking Bad" , imageFile:"BRBA", summary: "El profesor bacterio llega y te mata", seasons: 5 )
-     let betterCallSaul = Serie(name: "Better Call Saul" , imageFile:"", summary: "Looco", seasons: 9 )
-     let kikos = Serie(name: "Kikos" , imageFile:"", summary: "MisterCorn nos mete mucha chicha", seasons: 12 )
-    let keloke = Serie(name: "keloke", imageFile:"", summary: "basuuuuuuuura", seasons: 212 )
+    let peter = Actor(name: "PeterLaAnguila", avatarImage: "peter")
+    let loco = Actor(name: "loco", avatarImage: "loco")
+    let lokillo = Actor(name: "lokillo", avatarImage: "lokk")
+    let trogloditas = Actor(name: "trogloditas", avatarImage: "troglo")
+    let breakingBad = Serie(name: "Breaking Bad" , imageFile:"BRBA", summary: "Better Call Saul es una serie de televisión estadounidense creada por Vince Gilligan y Peter Gould. Se trata de una precuela de Breaking Bad. La acción se ubica en el año 2002 en torno al abogado James Morgan Jimmy McGill (interpretado por Bob Odenkirk), seis años antes de su aparición en Breaking Bad como Saul Goodman. A pesar de ser una precuela también se muestra brevemente cual fue ", seasons: 5, actores:  [peter,loco,lokillo])
     
+    let betterCallSaul = Serie(name: "Better Call Saul" , imageFile:"loco", summary: "Better Call Saul es una serie de televisión estadounidense creada por Vince Gilligan y Peter Gould. Se trata de una precuela de Breaking Bad. La acción se ubica en el año 2002 en torno al abogado James Morgan Jimmy McGill (interpretado por Bob Odenkirk), seis años antes de su aparición en Breaking Bad como Saul Goodman. A pesar de ser una precuela también se muestra brevemente cual fue el destino de Saul tras los hechos de la serie original.1​2​ En Estados Unidos, la serie se estrenó el 8 de febrero de 2015 y el primer episodio fue visto por 6.9 millones de espectadores, convirtiéndose en el estreno más visto en la historia de la televisión por cable en ese país.", seasons: 9, actores: [peter,loco])
+    let kikos = Serie(name: "Kikos" , imageFile:"troglo", summary: "MisterCorn nos mete mucha chicha", seasons: 12, actores: [loco,trogloditas] )
+    let keloke = Serie(name: "keloke", imageFile:"lokk", summary: "basuuuuuuuura", seasons: 212, actores: [peter,lokillo,trogloditas] )
     series.append(breakingBad)
     series.append(betterCallSaul)
     series.append(kikos)
     series.append(keloke)
+
     }
     @IBAction func eventoClickNext()  {
        indexCurrentSeries = (indexCurrentSeries + 1 ) % series.count

@@ -15,6 +15,7 @@ class ActorsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         imgAvatar.layer.cornerRadius = imgAvatar.frame.height / 2
+        imgAvatar.layer.masksToBounds = true
         // Initialization code
     }
 

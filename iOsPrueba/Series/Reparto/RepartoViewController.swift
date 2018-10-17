@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class RepartoViewController: UIViewController  {
     
@@ -23,6 +24,7 @@ class RepartoViewController: UIViewController  {
         super.viewDidLoad()
         title = ""
         registerCells()
+        setupBarButtonsItems()
         // Do any additional setup after loading the view.
     }
     
@@ -35,7 +37,43 @@ class RepartoViewController: UIViewController  {
         let cellNib1 = UINib(nibName: indentifier1, bundle: nil)
         tableView.register(cellNib1, forCellReuseIdentifier: "EmptyAlert")
     }
+    
+    private func setupBarButtonsItems()
+    {
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addPressed))
+        navigationItem.setRightBarButton(addButton, animated: false)
 
+    }
+    
+    @objc private func addPressed()
+    {
+        let date = Date()
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.timeStyle = .medium
+        
+    
+        
+        
+        let actor = Actor(name: dateFormatter.string(from: date), avatarImage: "https://api.adorable.io/avatars/200/80197d80116b41c83618598cd8b7fc47.png" )
+        actors.append(actor)
+        
+        tableView.beginUpdates()
+        
+        if actors.count == 1 {
+            tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+        }
+        else {
+            tableView.insertRows(at: [IndexPath(row: actors.count - 1 , section: 0)], with: .automatic)
+        }
+        tableView.endUpdates()
+    }
+    @objc private func seriesPressed()
+    {
+    
+     //   navigationController?.pushViewController(RepartoViewController, animated: true)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -65,6 +103,31 @@ extension RepartoViewController: UITableViewDelegate,UITableViewDataSource
          return 1
         
     }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return (actors.count>0)
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete
+        {
+            deleteActorAtIndexPath(indexPath)
+        }
+    }
+    
+    func deleteActorAtIndexPath (_ indexPath: IndexPath)
+    {
+        
+        actors.remove(at: indexPath.row)
+        tableView.beginUpdates()
+        
+        if actors.count == 0 {
+            tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+        }
+        else {
+            
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        tableView.endUpdates()
+    }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if actors.count>=1 {
@@ -86,7 +149,7 @@ extension RepartoViewController: UITableViewDelegate,UITableViewDataSource
             let cell: ActorsTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "actorsCell", for: indexPath) as? ActorsTableViewCell)!
             
         cell.lblName.text = actor.name
-        cell.imgAvatar.image = UIImage(named: actor.avatarImage)
+            cell.imgAvatar.sd_setImage(with: URL(string: actor.avatarImage)!, completed: nil)
             cell.layer.cornerRadius = 10
             
             return cell
@@ -95,6 +158,8 @@ extension RepartoViewController: UITableViewDelegate,UITableViewDataSource
         
         
     }
+ 
+    
 }
     extension RepartoViewController: EmptyAlertCellDelegate
     {
